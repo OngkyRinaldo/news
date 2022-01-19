@@ -25,7 +25,7 @@ class PageController extends Controller
             ->get();
 
         
-        return view('categories', compact('categories'));
+        return view('pages.categories', compact('categories'));
     }
 
     public function categories(Category $category)
@@ -34,7 +34,7 @@ class PageController extends Controller
             ->where('category_id', $category->id)
             ->get();
 
-        return view('category', compact('posts', 'category'));
+        return view('pages.category', compact('posts', 'category'));
     }
 
     public function allTags()
@@ -44,7 +44,7 @@ class PageController extends Controller
         
    
             
-        return view('tags', compact('tags'));
+        return view('pages.tags', compact('tags'));
     }
 
     public function tags(Tag $tag)
@@ -53,12 +53,12 @@ class PageController extends Controller
                 ->latest()
                 ->get();
 
-        return view('tag', compact('posts', 'tag'));
+        return view('pages.tag', compact('posts', 'tag'));
     }
 
     public function single(Category $category, Post $post)
     {
-        return view('post', compact('post'));
+        return view('pages.post', compact('post'));
     }
 
     public function index_cms()
@@ -79,6 +79,6 @@ class PageController extends Controller
         $posts = Post::orderBy('title', 'asc')
         ->get();
         
-        return view('latest-news', compact('posts'));
+        return view('pages.latest-news', compact('posts'));
     }
 }
