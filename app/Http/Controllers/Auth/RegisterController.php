@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Providers\RouteServiceProvider;
@@ -71,10 +72,30 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+        $user = User::create([
+            'name' =>$data['name'],
+            'email' =>$data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        if (request()->hasFile('image')) {
+            $image = request()->file('image');
+            $path = '/images/users/';
+
+            $filename = Str::slug(request('title')) . '-' . time() . '.' . $image->extension();
+            $image->move(public_path($path), $filename);
+            $user->update(['image' => $image]);
+        }
+
+        return $user;
     }
+
+    // if ($request->hasFile('image')) {
+    //     $image = $request->file('image');
+    //     $path = '/images/post/';
+
+    //     // apa-itu-berita-130614.jpg
+    //     $filename = Str::slug($request->title) . '-' . time() . '.' . $image->extension();
+    //     $image->move(public_path($path), $filename);
+    // }
 }

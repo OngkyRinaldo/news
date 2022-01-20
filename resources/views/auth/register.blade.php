@@ -15,7 +15,7 @@ Register
         <div class="card-body">
             <p class="login-box-msg">Register</p>
 
-            <form action="{{ route('register') }}" method="post">
+            <form action="{{ route('register') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="input-group mb-3">
                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
@@ -75,6 +75,16 @@ Register
                         </div>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label for="images" class="form-label">images</label>
+                    <input type="file" id="image" name="image">
+
+                    @error('image')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                </div>
+
                 <div class="row">
                     <div class="col-8">
 
