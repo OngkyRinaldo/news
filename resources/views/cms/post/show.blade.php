@@ -13,7 +13,8 @@ Show Post
                 <!-- left column -->
                 <div class="col-sm-12">
                     <div class="position-relative mb-3">
-                        <img class="img-fluid w-100" src="../images/post/{{ $post->image }}" style="object-fit: cover;">
+                        <img class="img-fluid w-100" src="{{ asset('images/post/' . $post->image) }}"
+                            style="object-fit: cover;">
                         <div class="bg-white border border-top-0 p-4">
                             <div class="mb-3">
                                 <a class="mb-3 text-secondary text-uppercase font-weight-bold"
@@ -33,12 +34,10 @@ Show Post
                         </div>
                         <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
                             <div class="d-flex align-items-center">
-                                <img class="rounded-circle mr-2" src="../img/user.jpg" width="25" height="25" alt="">
-                                <span>John Doe</span>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <span class="ml-3"><i class="far fa-eye mr-2"></i>12345</span>
-                                <span class="ml-3"><i class="far fa-comment mr-2"></i>123</span>
+                                <img class="rounded-circle mr-2"
+                                    src="{{ asset('images/users/' . $post->post_author->image) }}" width="25"
+                                    height="25" alt="">
+                                <span>{{ $post->post_author->name }}</span>
                             </div>
                         </div>
                     </div>
