@@ -57,7 +57,7 @@ class HomeController extends Controller
             ->uncompromised(),
     ],
         ]);
-
+ 
         //Change Password
         $user = Auth::user();
         $user->password = hash::make($request->get('new-password'));

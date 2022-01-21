@@ -77,7 +77,7 @@ Register
                 </div>
 
                 <div class="form-group">
-                    <label for="images" class="form-label">images</label>
+                    <label for="image" class="form-label">Image</label>
                     <input type="file" id="image" name="image">
 
                     @error('image')
