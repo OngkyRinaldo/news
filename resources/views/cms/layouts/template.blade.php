@@ -15,17 +15,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}" />
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}" />
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="{{ asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="{{ asset('plugins/jqvmap/jqvmap.min.css')}}">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="{{ asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
 
     <!-- Select2 -->
     <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css')}}" />
     <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}" />
     {{-- ckeditor --}}
     <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}" />
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
         <!-- Navbar -->
         <x-cms.navbar />
@@ -60,12 +70,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <!-- AdminLTE App -->
-    <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
     {{-- select2 --}}
     <!-- select -->
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
-
+    <!-- AdminLTE App -->
+    <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
+    {{-- select2 --}}
+    <script>
+        $(function () {
+        //Initialize Select2 Elements
+        $('#tag').select2();
+        CKEDITOR.replace('content');
+    
+       
+        });
+    </script>
     @yield('script')
 </body>
 

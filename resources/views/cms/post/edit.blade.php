@@ -109,13 +109,3 @@ Edit Post
     <!-- /.content -->
 </div>
 @endsection
-
-@section('script')
-<script>
-    $(function () {
-    //Initialize Select2 Elements
-    $('#tag').select2();
-    CKEDITOR.replace('content');
-    });
-</script>
-@endsection
