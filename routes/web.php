@@ -7,6 +7,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\cms\TagController;
 use App\Http\Controllers\cms\PostController;
 use App\Http\Controllers\cms\CategoryController;
+use App\Http\Controllers\cms\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('category', CategoryController::class);
     Route::resource('post', PostController::class);
     Route::resource('tag', TagController::class);
+    Route::resource('user', UserController::class);
     Route::get('/changePassword', [HomeController::class, 'showChangePasswordGet'])->name('changePasswordGet');
     Route::post('/changePassword', [HomeController::class, 'changePasswordPost'])->name('changePasswordPost');
 });

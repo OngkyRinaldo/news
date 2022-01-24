@@ -77,28 +77,5 @@ class RegisterController extends Controller
             'email' =>$data['email'],
             'password' => Hash::make($data['password']),
         ]);
-
-        if (request()->hasFile('image')) {
-            $image = request()->file('image');
-
-            $path = '/images/users/';
-
-            request()->file('image')->storeAs('images', $user->id . '/' . $image, '');
-            $user->update(['image' =>$image]);
-
-            $filename = Str::slug(request()->file('image')) . '-' . time() . '.' . $image->extension();
-            $image->move(public_path($path), $filename);
-        }
-
-        return $user;
     }
 }
-
-// if ($request->hasFile('image')) {
-//     $image = $request->file('image');
-//     $path = '/images/post/';
-
-//     // apa-itu-berita-130614.jpg
-//     $filename = Str::slug($request->title) . '-' . time() . '.' . $image->extension();
-//     $image->move(public_path($path), $filename);
-// }

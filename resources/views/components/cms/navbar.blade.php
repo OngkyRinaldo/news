@@ -31,6 +31,16 @@
 
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <div class="dropdown-divider"></div>
+                <a href="{{ route('user.index') }}" class="dropdown-item">
+                    <div class="media">
+                        <div class="media-body">
+                            <h3 class="dropdown-item-title">
+                                Setting Account
+                            </h3>
+                        </div>
+                    </div>
+                </a>
+                <div class="dropdown-divider"></div>
                 <a href="{{ route('changePasswordGet') }}" class="dropdown-item">
                     <div class="media">
                         <div class="media-body">
