@@ -201,7 +201,7 @@ Home
 
                                 <div class="m-n1">
                                     @foreach ($post->tags as $tag)
-                                    <a href="#" class="btn btn-sm btn-secondary m-1">
+                                    <a href="{{ route('guest.tags', $tag) }}" class="btn btn-sm btn-secondary m-1">
                                         {{ $tag->title }}
                                     </a>
                                     @endforeach
@@ -209,8 +209,10 @@ Home
                             </div>
                             <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle mr-2" src="img/user.jpg" width="25" height="25" alt="" />
-                                    <small>John Doe</small>
+                                    <img class="rounded-circle mr-2"
+                                        src="{{ asset('images/users/' . $post->post_author->image) }}" width=" 25"
+                                        height="25" alt="" />
+                                    <small>{{ $post->post_author->name }}</small>
                                 </div>
                                 <div class="d-flex align-items-center">
                                     <small class="ml-3"><i class="far fa-eye mr-2"></i>12345</small>

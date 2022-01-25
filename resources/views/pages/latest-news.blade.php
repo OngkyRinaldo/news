@@ -58,8 +58,10 @@ single
                     </div>
                     <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
                         <diva class="d-flex align-items-center">
-                            <img class="rounded-circle mr-2" src="../img/user.jpg" width="25" height="25" alt="">
-                            <span>John Doe</span>
+                            <img class="rounded-circle mr-2"
+                                src="{{ asset('images/users/' . $post->post_author->image) }}" width="25" height="25"
+                                alt="">
+                            <span>{{ $post->post_author->name }}</span>
                         </diva>
                         <div class="d-flex align-items-center">
                             <span class="ml-3"><i class="far fa-eye mr-2"></i>12345</span>
