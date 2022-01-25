@@ -36,16 +36,7 @@
                         <div class="media-body">
                             <h3 class="dropdown-item-title">
                                 Setting Account
-                            </h3>
-                        </div>
-                    </div>
-                </a>
-                <div class="dropdown-divider"></div>
-                <a href="{{ route('changePasswordGet') }}" class="dropdown-item">
-                    <div class="media">
-                        <div class="media-body">
-                            <h3 class="dropdown-item-title">
-                                Change Password
+                                <i class="fas fa-cog"></i>
                             </h3>
                         </div>
                     </div>
