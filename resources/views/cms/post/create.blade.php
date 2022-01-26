@@ -4,6 +4,14 @@
 Create Post
 @endsection
 
+@section('css')
+<!-- Select2 -->
+<link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css')}}" />
+<link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}" />
+{{-- ckeditor --}}
+<script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+@endsection
+
 @section('content')
 <div class="content-wrapper">
     <!-- Main content -->
@@ -102,4 +110,18 @@ Create Post
     </section>
     <!-- /.content -->
 </div>
+@endsection
+
+@section('script')
+<!-- select2 -->
+<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+<script>
+    $(function () {
+        //Initialize Select2 Elements
+        $('#tag').select2();
+        CKEDITOR.replace('content');
+    
+       
+        });
+</script>
 @endsection

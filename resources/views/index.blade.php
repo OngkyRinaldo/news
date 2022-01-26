@@ -212,11 +212,7 @@ Home
                                     <img class="rounded-circle mr-2"
                                         src="{{ asset('images/users/' . $post->post_author->image) }}" width=" 25"
                                         height="25" alt="" />
-                                    <small>{{ $post->post_author->name }}</small>
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <small class="ml-3"><i class="far fa-eye mr-2"></i>12345</small>
-                                    <small class="ml-3"><i class="far fa-comment mr-2"></i>123</small>
+                                    <small>{{$post->post_author->name }}</small>
                                 </div>
                             </div>
                         </div>

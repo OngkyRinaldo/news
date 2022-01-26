@@ -26,11 +26,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Daterange picker -->
     <link rel="stylesheet" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}">
 
-    <!-- Select2 -->
-    <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css')}}" />
-    <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}" />
-    {{-- ckeditor --}}
-    <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+    @yield('css')
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}" />
 </head>
@@ -70,21 +66,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
     <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    {{-- select2 --}}
-    <!-- select -->
-    <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('dist/js/adminlte.min.js') }}"></script>
-    {{-- select2 --}}
-    <script>
-        $(function () {
-        //Initialize Select2 Elements
-        $('#tag').select2();
-        CKEDITOR.replace('content');
-    
-       
-        });
-    </script>
+
     @yield('script')
 </body>
 

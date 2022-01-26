@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('title')
-Category
+Tag
 @endsection
 
 @section('content')
