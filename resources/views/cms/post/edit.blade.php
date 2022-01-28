@@ -93,14 +93,16 @@ Edit Post
 
                                 <div class="form-group">
                                     <label for="images" class="form-label">images</label>
-                                    <input type="hidden" name="oldImage" value="{{ $post->image }}">
                                     @if ($post->image)
                                     <img src="{{ asset('images/post/' . $post->image) }}"
                                         class="img-preview img-fluid md-3 col-sm-5 d-block">
                                     @else
                                     <img class="img-preview img-fluid md-3 col-sm-5 ">
                                     @endif
-                                    <input type="file" class="form-control" id="image" name="image" required>
+                                    <input type="file" class="form-control" id="image" name="image"
+                                        onchange="previewImage()">
+                                    <input type="hidden" name="oldImage" value="{{ $post->image }}">
+
 
 
                                     @error('image')
@@ -137,5 +139,23 @@ Edit Post
     
        
         });
+
+        {{-- preview image --}}
+
+function previewImage()
+{
+    const image = document.querySelector('#image');
+    const imgPreview = document.querySelector('.img-preview');
+
+    imgPreview.style.display = 'block';
+    const oFReader = new FileReader();
+
+    oFReader.readAsDataURL(image.files[0]);
+    
+    oFReader.onload = function(oFREvent)
+    {
+        imgPreview.src = oFREvent.target.result;
+    }
+}
 </script>
 @endsection
