@@ -134,6 +134,9 @@ class PostController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $path = '/images/post/';
+            if ($request->oldImage) {
+                File::delete(public_path('images/post/' . $post->image));
+            }
 
             // apa-itu-berita-130614.jpg
             $filename = Str::slug($request->title) . '-' . time() . '.' . $image->extension();

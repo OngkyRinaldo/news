@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -73,7 +74,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request)
     {
         $request->validate([
             'name' => 'required',
@@ -87,6 +88,10 @@ class UserController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $path = '/images/users/';
+
+            if ($request->oldImage) {
+                File::delete(public_path('images/users/' . $user->image));
+            }
 
             // apa-itu-berita-130614.jpg
             $filename = Str::slug($request->title) . '-' . time() . '.' . $image->extension();

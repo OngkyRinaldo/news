@@ -9,6 +9,12 @@ Account Setting
     <section class="content">
         <div class="container-fluid">
             <div class="row">
+
+                @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+                @endif
                 <div class="col-md-12">
 
                     <!-- Profile Image -->

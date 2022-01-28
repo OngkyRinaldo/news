@@ -93,7 +93,15 @@ Edit Post
 
                                 <div class="form-group">
                                     <label for="images" class="form-label">images</label>
-                                    <input type="file" class="form-control" id="image" name="image">
+                                    <input type="hidden" name="oldImage" value="{{ $post->image }}">
+                                    @if ($post->image)
+                                    <img src="{{ asset('images/post/' . $post->image) }}"
+                                        class="img-preview img-fluid md-3 col-sm-5 d-block">
+                                    @else
+                                    <img class="img-preview img-fluid md-3 col-sm-5 ">
+                                    @endif
+                                    <input type="file" class="form-control" id="image" name="image" required>
+
 
                                     @error('image')
                                     <span class="text-danger">{{ $message }}</span>

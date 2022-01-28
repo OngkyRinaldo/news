@@ -37,6 +37,7 @@ Edit Account
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Image</label>
+                                    <input type="hidden" name="oldImage" value="{{ $auth->image }}">
                                     <input type="file" class="form-control  @error('image') is-invalid @enderror"
                                         id="image" placeholder="Enter New Name" name="image" required>
 
