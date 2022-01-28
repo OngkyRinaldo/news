@@ -1,7 +1,7 @@
 @extends('layouts.template')
 
 @section('title')
-single
+search
 @endsection
 
 @section('content')
@@ -63,6 +63,7 @@ single
                             @endforeach
                         </div>
                     </div>
+
                     <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
                         <diva class="d-flex align-items-center">
                             <img class="rounded-circle mr-2"

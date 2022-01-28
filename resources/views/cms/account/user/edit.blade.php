@@ -49,7 +49,7 @@ Edit Account
                             <!-- /.card-body -->
 
                             <div class=" card-footer">
-                                <button type="submit" class="btn btn-primary">Edit Category</button>
+                                <button type="submit" class="btn btn-primary">Update Profile</button>
                             </div>
                         </form>
                     </div>

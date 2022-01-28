@@ -14,14 +14,18 @@
                 <a href="{{ route('guest.all-category') }}" class="nav-item nav-link">Category</a>
                 <a href="{{ route('guest.all-tag') }}" class="nav-item nav-link">Tag</a>
             </div>
-            <div class="input-group ml-auto d-none d-lg-flex" style="width: 100%; max-width: 300px">
-                <input type="text" class="form-control border-0" placeholder="Keyword" />
-                <div class="input-group-append">
-                    <button class="input-group-text bg-primary text-dark border-0 px-3">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </div>
-            </div>
+            <form action="{{ route('guest.search-post') }}">
+                <div class="input-group ml-auto d-none d-lg-flex" style="width: 100%; max-width: 300px">
+                    <input type="text" class="form-control border-0" placeholder="Keyword" name="search"
+                        value="{{ request('search') }}" />
+                    <div class="input-group-append">
+                        <button class="input-group-text bg-primary text-dark border-0 px-3" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+
+                    </div>
+            </form>
         </div>
-    </nav>
+</div>
+</nav>
 </div>

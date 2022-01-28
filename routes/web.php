@@ -42,3 +42,4 @@ Route::get('/tags/{tag}', [PageController::class, 'tags'])->name('guest.tags');
 Route::get('/all-category', [PageController::class, 'allCategory'])->name('guest.all-category');
 Route::get('/categories/{category}', [PageController::class, 'categories'])->name('guest.categories');
 Route::get('/{category}/{post}', [PageController::class, 'single'])->name('guest.post');
+Route::get('/search-posts', [PageController::class, 'search'])->name('guest.search-post');

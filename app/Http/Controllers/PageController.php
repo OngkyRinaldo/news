@@ -81,4 +81,14 @@ class PageController extends Controller
         
         return view('pages.latest-news', compact('posts'));
     }
+
+    public function search()
+    {
+        $posts = Post::latest() ->filter()
+                                ->get();
+
+       
+
+        return view('pages.search', compact('posts'));
+    }
 }
