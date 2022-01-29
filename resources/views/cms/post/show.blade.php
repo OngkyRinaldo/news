@@ -12,14 +12,15 @@ Show Post
             <div class="row">
                 <!-- left column -->
                 <div class="col-sm-12">
-                    <div class="position-relative mb-3">
-                        <img class="img-fluid w-100" src="{{ asset('images/post/' . $post->image) }}"
-                            style="object-fit: cover;">
+                    <div class="card card-primary">
+                        <img class="img-preview img-fluid md-3 col-sm-5 d-block"
+                            src="{{ asset('images/post/' . $post->image) }}" style="object-fit: cover;">
                         <div class="bg-white border border-top-0 p-4">
                             <div class="mb-3">
                                 <a class="mb-3 text-secondary text-uppercase font-weight-bold"
-                                    href="{{ route('guest.categories', $post->category) }}">{{
-                                    $post->category->title }}</a>
+                                    href="{{ route('guest.categories', $post->category) }}">
+                                    {{ $post->category->title }}
+                                </a>
                                 <span class="text-body">{{ $post->created_at->diffForHumans() }}</span>
                             </div>
                             <h1 class="mb-3 text-secondary text-uppercase font-weight-bold">{{ $post->title }}</h1>

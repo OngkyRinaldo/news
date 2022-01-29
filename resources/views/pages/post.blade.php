@@ -14,16 +14,15 @@ single
             <div class="col-12">
                 <div class="d-flex justify-content-between">
                     <diva class="section-title border-right-0 mb-0" style="width: 180px;">
-                        <h4 class="m-0 text-uppercase font-weight-bold">Tranding</h4>
+                        <h4 class="m-0 text-uppercase font-weight-bold">Latest News</h4>
                     </diva>
                     <div class="owl-carousel tranding-carousel position-relative d-inline-flex align-items-center bg-white border border-left-0"
                         style="width: calc(100% - 180px); padding-right: 100px;">
+                        @foreach ($posts as $post)
                         <div class="text-truncate"><a class="text-secondary text-uppercase font-weight-semi-bold"
-                                href="">Lorem ipsum dolor sit amet elit. Proin interdum lacus eget ante tincidunt, sed
-                                faucibus nisl sodales</a></div>
-                        <div class="text-truncate"><a class="text-secondary text-uppercase font-weight-semi-bold"
-                                href="">Lorem ipsum dolor sit amet elit. Proin interdum lacus eget ante tincidunt, sed
-                                faucibus nisl sodales</a></div>
+                                href="{{ route('guest.post', [$post->category, $post]) }}">{{ $post->title }}</a>
+                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -61,16 +60,13 @@ single
                         </div>
                     </div>
                     <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
-                        <diva class="d-flex align-items-center">
+                        <div class="d-flex align-items-center">
                             <img class="rounded-circle mr-2"
                                 src="{{ asset('images/users/' . $post->post_author->image) }}" width="25" height="25"
                                 alt="">
                             <span>{{ $post->post_author->name }}</span>
-                        </diva>
-                        <div class="d-flex align-items-center">
-                            <span class="ml-3"><i class="far fa-eye mr-2"></i>12345</span>
-                            <span class="ml-3"><i class="far fa-comment mr-2"></i>123</span>
                         </div>
+
                     </div>
                 </div>
                 <!-- News Detail End -->

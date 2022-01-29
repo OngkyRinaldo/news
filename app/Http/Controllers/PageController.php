@@ -58,7 +58,11 @@ class PageController extends Controller
 
     public function single(Category $category, Post $post)
     {
-        return view('pages.post', compact('post'));
+        $posts = Post::query()
+        ->latest()
+        ->paginate(5);
+        
+        return view('pages.post', compact('posts', 'post'));
     }
 
     public function index_cms()
