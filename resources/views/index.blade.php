@@ -201,7 +201,7 @@ Home
 
                                 <div class="m-n1">
                                     @foreach ($post->tags as $tag)
-                                    <a href="{{ route('guest.tags', $tag) }}" class="btn btn-sm btn-secondary m-1">
+                                    <a href="{{ route('guest.tags', $tag) }}" class="btn btn-sm btn-secondary m-1 mt-3">
                                         {{ $tag->title }}
                                     </a>
                                     @endforeach
