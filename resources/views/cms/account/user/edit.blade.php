@@ -37,9 +37,15 @@ Edit Account
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Image</label>
+                                    @if ($auth->image)
+                                    <img src="{{ asset('images/users/' . $auth->image) }}"
+                                        class="img-preview img-fluid md-3 col-sm-5 d-block">
+                                    @else
+                                    <img class="img-preview img-fluid md-3 col-sm-5 ">
+                                    @endif
+                                    <input type="file" class="form-control" @error('image') is-invalid @enderror"
+                                        id="image" name="image" onchange="previewImage()">
                                     <input type="hidden" name="oldImage" value="{{ $auth->image }}">
-                                    <input type="file" class="form-control  @error('image') is-invalid @enderror"
-                                        id="image" placeholder="Enter New Name" name="image" required>
 
                                     @error('image')
                                     {{ $message }}
@@ -62,4 +68,24 @@ Edit Account
     </section>
     <!-- /.content -->
 </div>
+@endsection
+
+@section('script')
+<script>
+    function previewImage()
+{
+    const image = document.querySelector('#image');
+    const imgPreview = document.querySelector('.img-preview');
+
+    imgPreview.style.display = 'block';
+    const oFReader = new FileReader();
+
+    oFReader.readAsDataURL(image.files[0]);
+    
+    oFReader.onload = function(oFREvent)
+    {
+        imgPreview.src = oFREvent.target.result;
+    }
+}
+</script>
 @endsection
