@@ -10,14 +10,12 @@ Category
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
+            @if (session('success'))
+            <div class="alert alert-success" role="alert">
+                {{ session('success') }}
+            </div>
+            @endif
             <div class="row">
-
-                @if (session('success'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('success') }}
-                </div>
-                @endif
-
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">

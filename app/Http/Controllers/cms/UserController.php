@@ -77,6 +77,7 @@ class UserController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'slug' => Str::slug($request->title),
             'image' => 'nullable|image|mimes:jpg,png|max:1024'
         ]);
 
@@ -91,9 +92,8 @@ class UserController extends Controller
             if ($request->oldImage) {
                 File::delete(public_path('images/users/' . $user->image));
             }
-
-            // apa-itu-berita-130614.jpg
-            $filename = Str::slug($request->title) . '-' . time() . '.' . $image->extension();
+            
+            $filename = $request->name. '-' . time() . '.' . $image->extension();
             $image->move(public_path($path), $filename);
         }
 
