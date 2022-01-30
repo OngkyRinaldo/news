@@ -29,10 +29,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
-        
-        View::composer('components.web.sidebar', function ($view) {
-            $view->with('latests', Post::latest()->get());
-        });
 
         View::composer('components.web.sidebar', function ($view) {
             $view->with('tags', Tag::latest()->get());
