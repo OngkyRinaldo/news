@@ -43,3 +43,4 @@ Route::get('/all-category', [PageController::class, 'allCategory'])->name('guest
 Route::get('/categories/{category}', [PageController::class, 'categories'])->name('guest.categories');
 Route::get('/{category}/{post}', [PageController::class, 'single'])->name('guest.post');
 Route::get('/search-posts', [PageController::class, 'search'])->name('guest.search-post');
+Route::get('{user}', [PageController::class, 'author'])->name('guest.author');

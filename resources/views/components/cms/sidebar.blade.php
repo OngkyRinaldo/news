@@ -16,7 +16,7 @@
                     alt="User Image" />
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ $latests->name }}</a>
+                <a href="{{ route('user.index') }}" class="d-block">{{ $latests->name }}</a>
             </div>
         </div>
 

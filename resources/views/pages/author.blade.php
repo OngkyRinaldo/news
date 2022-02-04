@@ -1,13 +1,14 @@
 @extends('layouts.template')
 
 @section('title')
-single
+Author
 @endsection
 
 @section('content')
 
 {{-- main start --}}
 <!-- Breaking News Start -->
+
 <div class="container-fluid mt-5 mb-3 pt-3">
     <div class="container">
         <div class="row align-items-center">
@@ -29,6 +30,8 @@ single
         </div>
     </div>
 </div>
+
+
 <!-- Breaking News End -->
 
 
@@ -56,7 +59,7 @@ single
                         <p>{!! $post->descriptions !!}</p>
                         <div class="m-n1">
                             @foreach ($post->tags as $tag)
-                            <a href="{{ route('guest.tags', $tag) }}" class="btn btn-sm btn-secondary m-1">
+                            <a href="#" class="btn btn-sm btn-secondary m-1">
                                 {{ $tag->title }}
                             </a>
                             @endforeach
@@ -67,10 +70,8 @@ single
                             <img class="rounded-circle mr-2"
                                 src="{{ asset('images/users/' . $post->post_author->image) }}" width="25" height="25"
                                 alt="">
-                            <a href="{{route ('guest.author', $post->post_author->id) }}" class="h4">
-                                <small>{{$post->post_author->name}}</small></a>
+                            <span>{{ $post->post_author->name }}</span>
                         </div>
-
                     </div>
                 </div>
                 @endforeach

@@ -212,7 +212,8 @@ Home
                                     <img class="rounded-circle mr-2"
                                         src="{{ asset('images/users/' . $post->post_author->image) }}" width=" 25"
                                         height="25" alt="" />
-                                    <small>{{$post->post_author->name}}</small>
+                                    <a href="{{route ('guest.author', $post->post_author->id) }}" class="h4">
+                                        <small>{{$post->post_author->name}}</small></a>
                                 </div>
                             </div>
                         </div>
