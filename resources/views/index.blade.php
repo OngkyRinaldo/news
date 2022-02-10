@@ -32,6 +32,7 @@ Home
                 @endforeach
             </div>
         </div>
+
         <div class="col-lg-5 px-0">
             <div class="row mx-0">
                 @foreach ($posts as $post)
@@ -44,7 +45,7 @@ Home
                                 <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
                                     href="{{ route('guest.categories', $post->category) }}">{{
                                     $post->category->title }}</a>
-                                <a class="text-white" href="" style="text-decoration: none;"><small>{{
+                                <a class="text-white" style="text-decoration: none;"><small>{{
                                         $post->created_at->diffForHumans()
                                         }}</small></a>
                             </div>
@@ -96,66 +97,24 @@ Home
             </h4>
         </div>
         <div class="owl-carousel news-carousel carousel-item-4 position-relative">
+            @foreach ($posts as $post)
             <div class="position-relative overflow-hidden" style="height: 300px">
-                <img class="img-fluid h-100" src="img/news-700x435-1.jpg" style="object-fit: cover" />
+                <img class="img-fluid h-100" src="{{ asset('images/post/' . $post->image) }}"
+                    style="object-fit: cover" />
                 <div class="overlay">
                     <div class="mb-2">
                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                            href="">Business</a>
-                        <a class="text-white" href=""><small>Jan 01, 2045</small></a>
+                            href="{{ route('guest.categories', $post->category) }}">{{
+                            $post->category->title }}</a>
+                        <a class="text-white" style="text-decoration:none;"><small>{{ $post->created_at->diffForHumans()
+                                }}</small></a>
                     </div>
-                    <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet
-                        elit...</a>
+                    <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold"
+                        href="{{ route('guest.post', [$post->category, $post]) }}">{{ $post->title }}
+                    </a>
                 </div>
             </div>
-            <div class="position-relative overflow-hidden" style="height: 300px">
-                <img class="img-fluid h-100" src="img/news-700x435-2.jpg" style="object-fit: cover" />
-                <div class="overlay">
-                    <div class="mb-2">
-                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                            href="">Business</a>
-                        <a class="text-white" href=""><small>Jan 01, 2045</small></a>
-                    </div>
-                    <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet
-                        elit...</a>
-                </div>
-            </div>
-            <div class="position-relative overflow-hidden" style="height: 300px">
-                <img class="img-fluid h-100" src="img/news-700x435-3.jpg" style="object-fit: cover" />
-                <div class="overlay">
-                    <div class="mb-2">
-                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                            href="">Business</a>
-                        <a class="text-white" href=""><small>Jan 01, 2045</small></a>
-                    </div>
-                    <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet
-                        elit...</a>
-                </div>
-            </div>
-            <div class="position-relative overflow-hidden" style="height: 300px">
-                <img class="img-fluid h-100" src="img/news-700x435-4.jpg" style="object-fit: cover" />
-                <div class="overlay">
-                    <div class="mb-2">
-                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                            href="">Business</a>
-                        <a class="text-white" href=""><small>Jan 01, 2045</small></a>
-                    </div>
-                    <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet
-                        elit...</a>
-                </div>
-            </div>
-            <div class="position-relative overflow-hidden" style="height: 300px">
-                <img class="img-fluid h-100" src="img/news-700x435-5.jpg" style="object-fit: cover" />
-                <div class="overlay">
-                    <div class="mb-2">
-                        <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
-                            href="">Business</a>
-                        <a class="text-white" href=""><small>Jan 01, 2045</small></a>
-                    </div>
-                    <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="">Lorem ipsum dolor sit amet
-                        elit...</a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

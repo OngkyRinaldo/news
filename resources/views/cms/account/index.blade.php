@@ -20,8 +20,10 @@ Account Setting
                     <div class="card card-primary card-outline">
                         <div class="card-body box-profile">
                             <div class="text-center">
-                                <img class="profile-user-img img-fluid img-circle"
-                                    src="{{ asset('images/users/' . $auth->image) }}" alt="User profile picture">
+                                <a href="{{ route('user.edit', $auth->id) }}"> <img
+                                        class="profile-user-img img-fluid img-circle"
+                                        src="{{ asset('images/users/' . $auth->image) }}"
+                                        alt="User profile picture"></a>
                             </div>
 
                             <h3 class="profile-username text-center">{{ $auth->name }}</h3>
