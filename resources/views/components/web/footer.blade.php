@@ -47,10 +47,10 @@
             <h5 class="mb-4 text-white text-uppercase font-weight-bold">
                 Categories
             </h5>
-            @foreach ($categoryLatests as $post)
+            @foreach ($categoryLatests as $category)
             <div class="m-n1">
-                <a href="{{ route('guest.categories', $post->category) }}" class="btn btn-sm btn-secondary m-1">{{
-                    $post->category->title }}</a>
+                <a href="{{ route('guest.categories', $category->slug) }}" class="btn btn-sm btn-secondary m-1">{{
+                    $category->title }}</a>
             </div>
             @endforeach
 

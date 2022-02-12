@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Pagination\Paginator;
@@ -31,7 +32,7 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         View::composer('components.web.sidebar', function ($view) {
-            $view->with('latests', Post::latest()->get());
+            $view->with('latests', Post::latest()->paginate(4));
         });
 
         View::composer('components.web.sidebar', function ($view) {
@@ -39,11 +40,12 @@ class AppServiceProvider extends ServiceProvider
         });
 
         View::composer('components.web.footer', function ($view) {
-            $view->with('categoryLatests', Post::latest()->get());
+            $view->with('categoryLatests', Category::orderBy('title', 'asc')
+            ->get());
         });
 
         View::composer('components.web.footer', function ($view) {
-            $view->with('latests', Post::latest()->get());
+            $view->with('latests', Post::latest()->paginate(4));
         });
 
         View::composer('components.cms.sidebar', function ($view) {

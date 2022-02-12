@@ -15,7 +15,7 @@ class PageController extends Controller
     {
         $posts = Post::query()
             ->latest()
-            ->paginate(5);
+            ->paginate(4);
         
         return view('index', compact('posts'));
     }
