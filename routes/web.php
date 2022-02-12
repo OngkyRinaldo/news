@@ -27,10 +27,12 @@ Auth::routes();
 Route::get('/signin', [PageController::class, 'login'])->name('home');
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [PageController::class, 'index_cms'])->name('index');
-    Route::resource('category', CategoryController::class);
-    Route::resource('post', PostController::class);
-    Route::resource('tag', TagController::class);
-    Route::resource('user', UserController::class);
+    Route::resources([
+        'category' => CategoryController::class,
+        'post' => PostController::class,
+        'tag' => TagController::class,
+        'user' => UserController::class
+    ]);
     Route::get('/changePassword', [HomeController::class, 'showChangePasswordGet'])->name('changePasswordGet');
     Route::post('/changePassword', [HomeController::class, 'changePasswordPost'])->name('changePasswordPost');
 });
