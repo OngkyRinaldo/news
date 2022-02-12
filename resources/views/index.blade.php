@@ -140,7 +140,7 @@ Home
                     <div class="col-lg-6">
                         <div class="position-relative mb-3">
                             <img class="img-fluid w-100" src="{{ asset('images/post/' . $post->image) }}"
-                                style="object-fit: cover" />
+                                style="object-fit: cover; height:300px" />
                             <div class="bg-white border border-top-0 p-4">
                                 <div class="mb-2">
                                     <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -152,11 +152,10 @@ Home
                                             }}</small></a>
                                 </div>
                                 <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold"
-                                    href="{{ route('guest.post', [$post->category, $post]) }}">{{
+                                    href="{{ route('guest.post', [$post->category, $post]) }}"
+                                    style="font-size: 18px; height:20px">{{
                                     $post->title }}</a>
-                                <p class="m-0">
-                                    {{ $post->descriptions }}
-                                </p>
+
 
                                 <div class="m-n1">
                                     @foreach ($post->tags as $tag)
@@ -171,7 +170,8 @@ Home
                                     <img class="rounded-circle mr-2"
                                         src="{{ asset('images/users/' . $post->post_author->image) }}" width=" 25"
                                         height="25" alt="" />
-                                    <a href="{{route ('guest.author', $post->post_author->id) }}" class="h4">
+                                    <a href="{{route ('guest.author', $post->post_author->id) }}" class="h4"
+                                        style="font-size: 20px">
                                         <small>{{$post->post_author->name}}</small></a>
                                 </div>
                             </div>

@@ -127,6 +127,7 @@ class PostController extends Controller
             'title' => 'required',
             'category' =>'required',
             'content' => 'required|string',
+            'descriptions' => 'required',
             'tags' => 'required',
             'image' => 'nullable|image|mimes:jpg,png|max:1024'
         ]);
@@ -148,6 +149,7 @@ class PostController extends Controller
             'slug' => Str::slug($request->title),
             'category_id' => $request->category,
             'content' => $request->content,
+            'descriptions' => $request->descriptions,
             'author' => auth()->id(),
             'image' => $request->hasFile('image') ? $filename : null
         ]);

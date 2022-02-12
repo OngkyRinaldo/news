@@ -44,7 +44,7 @@ Tag
                 @foreach ($posts as $post)
                 <div class="position-relative mb-3">
                     <img class="img-fluid w-100" src="{{ asset('images/post/' . $post->image) }}"
-                        style="object-fit: cover;">
+                        style="object-fit: cover; height:238px">
                     <div class="bg-white border border-top-0 p-4">
                         <div class="mb-3">
                             <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -76,6 +76,7 @@ Tag
                     </div>
                 </div>
                 @endforeach
+                {{ $posts->links() }}
 
                 <!-- News Detail End -->
             </div>

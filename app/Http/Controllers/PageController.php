@@ -33,7 +33,8 @@ class PageController extends Controller
     {
         $posts = Post::query()
             ->where('category_id', $category->id)
-            ->get();
+            ->latest()
+            ->paginate(2);
 
         return view('pages.category', compact('posts', 'category'));
     }
@@ -52,7 +53,7 @@ class PageController extends Controller
     {
         $posts = $tag->posts()
                 ->latest()
-                ->get();
+                ->paginate(2);
 
         return view('pages.tag', compact('posts', 'tag'));
     }
@@ -101,7 +102,8 @@ class PageController extends Controller
     {
         $posts = Post::query()
         ->where('author', $user->id)
-        ->get();
+        ->latest()
+        ->paginate(2);
 
         return view('pages.author', compact('posts', 'user'));
     }

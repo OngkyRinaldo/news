@@ -43,7 +43,7 @@
             </div>
             @endforeach
         </div>
-        <div class="col-lg-3 col-md-6 mb-5">
+        <diva class="col-lg-3 col-md-6 mb-5">
             <h5 class="mb-4 text-white text-uppercase font-weight-bold">
                 Categories
             </h5>
@@ -54,6 +54,21 @@
             </div>
             @endforeach
 
+
+
+        </diva>
+        <div class="col-lg-3 col-md-6 mb-5">
+            <h5 class="mb-4 text-white text-uppercase font-weight-bold">
+                Tags
+            </h5>
+            @foreach ($tags as $tag)
+            <div class="m-n1">
+                <a href="{{ route('guest.tags', $tag->slug) }}" class="btn btn-sm btn-secondary m-1">{{
+                    $tag->title }}</a>
+            </div>
+            @endforeach
+
         </div>
+
     </div>
 </div>

@@ -44,7 +44,7 @@ Category
                 @foreach ($posts as $post)
                 <div class="position-relative mb-3">
                     <img class="img-fluid w-100" src="{{ asset('images/post/' . $post->image) }}"
-                        style="object-fit: cover;">
+                        style="object-fit: cover;height:250px">
                     <div class="bg-white border border-top-0 p-4">
                         <div class="mb-3">
                             <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2"
@@ -70,11 +70,14 @@ Category
                             <img class="rounded-circle mr-2"
                                 src="{{ asset('images/users/' . $post->post_author->image) }}" width="25" height="25"
                                 alt="">
-                            <span>{{ $post->post_author->name }}</span>
+                            <a href="{{route ('guest.author', $post->post_author->id) }}" class="h4"
+                                style="font-size: 20px">
+                                <small>{{$post->post_author->name}}</small></a>
                         </div>
                     </div>
                 </div>
                 @endforeach
+                {{ $posts->links() }}
 
                 <!-- News Detail End -->
             </div>

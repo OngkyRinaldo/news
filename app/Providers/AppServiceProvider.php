@@ -35,12 +35,13 @@ class AppServiceProvider extends ServiceProvider
             $view->with('latests', Post::latest()->paginate(4));
         });
 
-        View::composer('components.web.sidebar', function ($view) {
-            $view->with('tags', Tag::latest()->get());
+        View::composer('components.web.footer', function ($view) {
+            $view->with('categoryLatests', Category::orderBy('title', 'asc')
+            ->get());
         });
 
         View::composer('components.web.footer', function ($view) {
-            $view->with('categoryLatests', Category::orderBy('title', 'asc')
+            $view->with('tags', Tag::orderBy('title', 'asc')
             ->get());
         });
 
